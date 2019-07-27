@@ -1,5 +1,5 @@
 export function hello(): void {
-  const hello: string = 'hello'
+  const hello = 'hello'
 
   console.log(hello)
 }
