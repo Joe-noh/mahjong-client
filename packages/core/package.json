@@ -1,0 +1,16 @@
+{
+  "name": "@mahjong-client/core",
+  "version": "0.0.0",
+  "private": true,
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -cw",
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "devDependencies": {
+    "@wessberg/rollup-plugin-ts": "^1.1.62",
+    "rollup": "^1.17.0",
+    "typescript": "^3.5.3"
+  }
+}
