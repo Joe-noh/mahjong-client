@@ -4,7 +4,7 @@
   "scripts": {
     "lerna": "lerna",
     "dev": "lerna exec --parallel npm run dev",
-    "lint": "eslint '*/**/*.{js,ts}'"
+    "lint": "lerna exec --no-bail npm run lint"
   },
   "devDependencies": {
     "lerna": "^3.16.4"
