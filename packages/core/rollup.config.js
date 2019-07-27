@@ -5,7 +5,7 @@ export default {
   output: {
     file: 'dist/index.js',
     format: 'umd',
-    name: 'mahjong-client-core'
+    name: '@mahjong-client/core'
   },
   plugins: [
     ts({

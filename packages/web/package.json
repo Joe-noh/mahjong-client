@@ -1,5 +1,5 @@
 {
-  "name": "mahojng-client-web",
+  "name": "@mahojng-client/web",
   "version": "0.0.0",
   "private": true,
   "devDependencies": {
@@ -19,6 +19,6 @@
     "dev": "webpack-dev-server --content-base public"
   },
   "dependencies": {
-    "mahjong-client-core": "^0.0.0"
+    "@mahjong-client/core": "^0.0.0"
   }
 }

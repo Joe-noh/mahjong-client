@@ -1,7 +1,7 @@
 <script>
-  import core from 'mahjong-client-core'
+  import { hello } from '@mahjong-client/core'
 
-  core()
+  hello()
 
   export let name;
 </script>
