@@ -1,0 +1,9 @@
+{
+  "name": "mahjong-client-core",
+  "version": "0.0.0",
+  "private": true,
+  "main": "lib/core.js",
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  }
+}

@@ -1,6 +1,9 @@
 {
   "name": "mahjong-client",
   "private": true,
+  "scripts": {
+    "lerna": "lerna"
+  },
   "devDependencies": {
     "lerna": "^3.16.4"
   }
