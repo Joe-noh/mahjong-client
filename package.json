@@ -2,7 +2,8 @@
   "name": "mahjong-client",
   "private": true,
   "scripts": {
-    "lerna": "lerna"
+    "lerna": "lerna",
+    "dev": "lerna exec --parallel npm run dev"
   },
   "devDependencies": {
     "lerna": "^3.16.4"

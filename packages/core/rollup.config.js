@@ -7,13 +7,13 @@ export default {
     format: 'umd',
     name: 'mahjong-client-core'
   },
-	plugins: [
-		ts({
+  plugins: [
+    ts({
       tsconfig: {
         target: 'es5',
         noImplicitAny: true,
         removeComments: true
       }
     })
-	]
+  ]
 }
