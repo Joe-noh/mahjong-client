@@ -6,10 +6,17 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -cw",
-    "test": "echo \"Error: run tests from root\" && exit 1"
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "lint": "eslint --ext '.js,.ts' ."
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^1.13.0",
+    "@typescript-eslint/parser": "^1.13.0",
     "@wessberg/rollup-plugin-ts": "^1.1.62",
+    "eslint": "^5.0.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-prettier": "^3.1.0",
+    "prettier": "^1.18.2",
     "rollup": "^1.17.0",
     "typescript": "^3.5.3"
   }
