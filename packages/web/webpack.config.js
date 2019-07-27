@@ -1,8 +1,8 @@
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const path = require('path');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const path = require('path')
 
-const mode = process.env.NODE_ENV || 'development';
-const prod = mode === 'production';
+const mode = process.env.NODE_ENV || 'development'
+const prod = mode === 'production'
 
 module.exports = {
   entry: {
@@ -48,5 +48,5 @@ module.exports = {
       filename: '[name].css'
     })
   ],
-  devtool: prod ? false: 'source-map'
-};
+  devtool: prod ? false : 'source-map'
+}

@@ -3,7 +3,9 @@
   "private": true,
   "scripts": {
     "lerna": "lerna",
-    "dev": "lerna exec --parallel npm run dev"
+    "dev": "lerna exec --parallel npm run dev",
+    "lint": "lerna exec --no-bail npm run lint",
+    "lint:fix": "lerna exec --no-bail 'npm run lint -- --fix'"
   },
   "devDependencies": {
     "lerna": "^3.16.4"
