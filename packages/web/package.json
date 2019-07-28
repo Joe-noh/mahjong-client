@@ -8,6 +8,7 @@
     "lint": "eslint --ext '.js,.svelte' ."
   },
   "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
     "cross-env": "^5.2.0",
     "css-loader": "^2.1.1",
     "eslint": "^6.1.0",
