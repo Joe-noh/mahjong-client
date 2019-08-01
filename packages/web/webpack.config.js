@@ -2,7 +2,7 @@ const path = require('path')
 const webpackMerge = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 const mode = process.env.NODE_ENV || 'development'
 const config = require(`./build/webpack.${mode}.js`)

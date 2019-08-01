@@ -1,10 +1,14 @@
-import App from './App.svelte'
+import crayon from 'crayon'
+import { router } from 'crayon-svelte'
 
-const app = new App({
-  target: document.body,
-  props: {
-    name: 'world'
-  }
-})
+import Top from './pages/Top.svelte'
+import Signup from './pages/Signup.svelte'
 
-export default app
+const app = crayon.create()
+
+app.use(router())
+
+app.path('/', (req, res) => res.mount(Top))
+app.path('/signup', (req, res) => res.mount(Signup))
+
+app.load()
