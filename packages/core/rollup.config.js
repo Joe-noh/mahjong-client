@@ -8,12 +8,6 @@ export default {
     name: '@mahjong-client/core'
   },
   plugins: [
-    ts({
-      tsconfig: {
-        target: 'es5',
-        noImplicitAny: true,
-        removeComments: true
-      }
-    })
+    ts()
   ]
 }
