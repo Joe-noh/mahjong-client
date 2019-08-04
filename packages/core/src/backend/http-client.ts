@@ -31,20 +31,20 @@ export default class HTTPClient {
 
   private jsonResolver<T>(promise: Promise<Response>): Promise<T> {
     let res: Response
-    const resolver = async (resolve, reject): Promise<T> => {
+    const resolver = async (resolve, reject): Promise<void> => {
       try {
         res = await promise
+
+        if (res && res.ok) {
+          try {
+            const json: { data: T } = await res.json()
+            resolve(json.data)
+          } catch (error) {
+            reject(error)
+          }
+        }
       } catch (error) {
         reject(error)
-      }
-
-      if (res.ok) {
-        try {
-          const json: { data: T } = await res.json()
-          resolve(json.data)
-        } catch (error) {
-          reject(error)
-        }
       }
     }
 
