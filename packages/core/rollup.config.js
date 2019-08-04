@@ -7,7 +7,5 @@ export default {
     format: 'umd',
     name: '@mahjong-client/core'
   },
-  plugins: [
-    ts()
-  ]
+  plugins: [ts()]
 }
