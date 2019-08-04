@@ -29,7 +29,6 @@
   },
   "dependencies": {
     "@mahjong-client/core": "^0.0.0",
-    "crayon": "^2.3.0",
-    "crayon-svelte": "^1.0.1"
+    "svelte-routing": "^1.2.1"
   }
 }
