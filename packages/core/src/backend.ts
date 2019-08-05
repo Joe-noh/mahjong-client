@@ -1,4 +1,4 @@
-import HTTPClient from '@/backend/http-client'
+import { HTTPClient } from '@/backend/http-client'
 import { Session, SessionJSON } from './entities/session'
 import { User, UserJSON } from './entities/user'
 

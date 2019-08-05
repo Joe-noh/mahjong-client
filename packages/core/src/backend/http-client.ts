@@ -1,6 +1,6 @@
 type Method = 'GET' | 'POST' | 'PUT' | 'DELETE'
 
-export default class HTTPClient {
+export class HTTPClient {
   private authToken: string
   private baseUrl: string
 
