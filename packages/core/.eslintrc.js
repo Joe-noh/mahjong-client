@@ -7,5 +7,8 @@ module.exports = {
   },
   env: {
     es6: true
+  },
+  rules: {
+    '@typescript-eslint/no-explicit-any': 'off'
   }
 }

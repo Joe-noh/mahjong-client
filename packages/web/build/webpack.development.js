@@ -1,6 +1,14 @@
+const path = require('path')
+
 module.exports = {
   module: {
     rules: [
+      {
+        enforce: 'pre',
+        test: /\.(js|svelte)$/,
+        exclude: [/node_modules/, path.resolve(__dirname, '../../core')],
+        loader: 'eslint-loader'
+      },
       {
         test: /\.svelte$/,
         use: {
@@ -16,5 +24,9 @@ module.exports = {
       }
     ]
   },
-  devtool: 'source-map'
+  devtool: 'source-map',
+  devServer: {
+    historyApiFallback: true,
+    stats: 'minimal'
+  }
 }

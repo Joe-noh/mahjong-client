@@ -1,15 +1,18 @@
 <script>
-  import { hello } from '@mahjong-client/core'
+  import { Router, Link, Route } from 'svelte-routing'
+  import Top from './pages/Top.svelte'
+  import Signup from './pages/Signup.svelte'
 
-  hello()
-
-  export let name
+  export let url = ''
 </script>
 
-<style>
-  h1 {
-    color: purple;
-  }
-</style>
-
-<h1>Hello {name}!</h1>
+<Router url="{url}">
+  <nav>
+    <Link to="/">Home</Link>
+    <Link to="/signup">Signup</Link>
+  </nav>
+  <div>
+    <Route path="/signup" component="{Signup}" />
+    <Route path="/"><Top /></Route>
+  </div>
+</Router>
