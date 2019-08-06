@@ -1,4 +1,5 @@
 import ts from '@wessberg/rollup-plugin-ts'
+import { eslint } from 'rollup-plugin-eslint'
 
 export default {
   input: 'src/index.ts',
@@ -7,5 +8,5 @@ export default {
     format: 'umd',
     name: '@mahjong-client/core'
   },
-  plugins: [ts()]
+  plugins: [eslint(), ts()]
 }
