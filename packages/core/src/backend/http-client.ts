@@ -6,14 +6,16 @@ export class HTTPClient {
 
   public constructor(opts: { authToken: string; baseUrl: string }) {
     this.authToken = opts.authToken
-    this.baseUrl = opts.baseUrl
+    this.baseUrl = opts.baseUrl.replace(/\/$/, '')
   }
 
   public request<T>(method: Method, path: string, params?: object): Promise<T> {
     const headers = new Headers()
     headers.set('Accept', 'application/json')
     headers.set('Content-Type', 'application/json')
-    headers.set('Authorization', `Bearer ${this.authToken}`)
+    if (this.authToken) {
+      headers.set('Authorization', `Bearer ${this.authToken}`)
+    }
 
     let req: RequestInit = {
       method,

@@ -22,7 +22,7 @@ describe('Backend', (): void => {
         }
       }))
 
-      const backend = new Backend({ isDev: true })
+      const backend = new Backend('http://localhost:4000')
       const user: User = await backend.getUser(1)
 
       expect(user.id).toEqual(1)
@@ -40,7 +40,7 @@ describe('Backend', (): void => {
         }
       }))
 
-      const backend = new Backend({ isDev: true })
+      const backend = new Backend('http://localhost:4000')
       const session: Session = await backend.signup({ name: 'john', password: 'password' })
 
       expect(session.token).toEqual('json.web.token')

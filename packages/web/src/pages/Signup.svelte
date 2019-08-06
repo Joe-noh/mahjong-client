@@ -7,7 +7,7 @@
   async function onSubmit(e) {
     e.preventDefault()
 
-    const client = new Backend({ isDev: true })
+    const client = new Backend(process.env.BACKEND_URL)
     await client.signup({ name, password })
   }
 </script>

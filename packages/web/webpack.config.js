@@ -1,4 +1,5 @@
 const path = require('path')
+const { EnvironmentPlugin } = require('webpack')
 const webpackMerge = require('webpack-merge')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
@@ -24,7 +25,14 @@ module.exports = webpackMerge(
       filename: '[name].[contenthash].js'
     },
     mode,
-    plugins: [new CleanWebpackPlugin(), new HtmlWebpackPlugin({ template: './src/index.template.html', favicon: './src/favicon.png' })]
+    plugins: [
+      new CleanWebpackPlugin(),
+      new HtmlWebpackPlugin({ template: './src/index.template.html', favicon: './src/favicon.png' }),
+      new EnvironmentPlugin({
+        NODE_ENV: 'development',
+        BACKEND_URL: 'http://localhost:4000'
+      })
+    ]
   },
   config
 )

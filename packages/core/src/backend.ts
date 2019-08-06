@@ -3,14 +3,10 @@ import { Session, SessionJSON } from './entities/session'
 import { User, UserJSON } from './entities/user'
 
 export class Backend {
-  private isDev: boolean
   private http: HTTPClient
 
-  public constructor(opts: { authToken?: string; isDev: boolean }) {
-    this.isDev = opts.isDev
-
-    const baseUrl = opts.isDev ? 'http://localhost:4000' : 'https://tbd.com'
-    this.http = new HTTPClient({ baseUrl: baseUrl, authToken: opts.authToken })
+  public constructor(baseUrl: string, opts: { authToken?: string } = {}) {
+    this.http = new HTTPClient({ baseUrl, authToken: opts.authToken })
   }
 
   public signup(params: { name: string; password: string }): Promise<Session> {
