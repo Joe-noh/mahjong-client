@@ -1,0 +1,25 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: circleci/node:12
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v1-npm-cache-core-{{ checksum "packages/core/package.json" }}
+            - v1-npm-cache-web-{{ checksum "packages/web/package.json" }}
+            - v1-npm-cache-{{ checksum "package.json" }}
+      - run: npm install
+      - run: npm run lerna bootstrap
+      - save_cache:
+          key: v1-npm-cache-{{ checksum "package.json" }}
+          paths: node_modules
+      - save_cache:
+          key: v1-npm-cache-core-{{ checksum "packages/core/package.json" }}
+          paths: packages/core/node_modules
+      - save_cache:
+          key: v1-npm-cache-web-{{ checksum "packages/web/package.json" }}
+          paths: packages/web/node_modules
+      - run: npm test
