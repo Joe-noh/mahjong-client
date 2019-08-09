@@ -1,28 +1,27 @@
 <script>
-  import  { Backend } from '@mahjong-client/core'
+  import { Backend } from '@mahjong-client/core'
 
-  let name = ''
-  let password = ''
+  import firebase from 'firebase/app'
+  import 'firebase/auth'
 
-  async function onSubmit(e) {
-    e.preventDefault()
+  async function onClick(e) {
+    firebase.initializeApp({
+      apiKey: 'AIzaSyCL2aXJ4OcJcUniX4Uc66oM0uJoQDF9KAI',
+      authDomain: 'mah-development.firebaseapp.com'
+    })
 
-    const client = new Backend(process.env.BACKEND_URL)
-    await client.signup({ name, password })
+    const provider = new firebase.auth.TwitterAuthProvider()
+    const result = await firebase.auth().signInWithPopup(provider)
+    const idToken = await firebase.auth().currentUser.getIdToken()
+
+    console.log(result)
+    console.log(idToken)
   }
 </script>
 
 <main>
   <h1>signup page</h1>
   <article>
-    <form on:submit="{onSubmit}">
-      <label for="name-input">Name</label>
-      <input type="text" id="name-input" name="name" bind:value="{name}" />
-
-      <label for="password-input">Password</label>
-      <input type="password" id="password-input" name="password" bind:value="{password}" />
-
-      <input type="submit" value="Signup" />
-    </form>
+    <button on:click="{onClick}">Signup</button>
   </article>
 </main>
