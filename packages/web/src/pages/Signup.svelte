@@ -1,14 +1,14 @@
 <script>
+  import { navigate } from 'svelte-routing'
   import firebase from '@/lib/firebase'
-  import backend from '@/lib/backend'
+  import backend, { persistAuthToken } from '@/lib/backend'
 
   async function onClick(e) {
-    const idToken = await firebase.openPopup('twitter').catch(error => {
-      console.log(error)
-    })
+    const idToken = await firebase.openPopup('twitter').catch(() => {})
     const session = await backend().login({ idToken })
+    persistAuthToken(session.token)
 
-    console.log(session)
+    navigate('/', { replace: true })
   }
 </script>
 
