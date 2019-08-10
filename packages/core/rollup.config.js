@@ -1,5 +1,7 @@
 import ts from '@wessberg/rollup-plugin-ts'
 import { eslint } from 'rollup-plugin-eslint'
+import commonjs from 'rollup-plugin-commonjs'
+import resolve from 'rollup-plugin-node-resolve'
 
 export default {
   input: 'src/index.ts',
@@ -8,5 +10,5 @@ export default {
     format: 'umd',
     name: '@mahjong-client/core'
   },
-  plugins: [eslint(), ts()]
+  plugins: [resolve({ browser: true }), commonjs(), eslint(), ts()]
 }

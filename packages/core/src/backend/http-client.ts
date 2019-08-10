@@ -1,4 +1,5 @@
 import { decamelize } from '@ridi/object-case-converter'
+
 type Method = 'GET' | 'POST' | 'PUT' | 'DELETE'
 
 export class HTTPClient {
@@ -52,10 +53,6 @@ export class HTTPClient {
     }
 
     return new Promise(resolver)
-  }
-
-  private snakeCase(params: object) {
-
   }
 
   private urlFor(path: string): string {
