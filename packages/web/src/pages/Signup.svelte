@@ -1,15 +1,23 @@
 <script>
+  import { onMount } from 'svelte'
   import { navigate } from 'svelte-routing'
+  import { session, isLoggedIn } from '@/stores/session'
   import firebase from '@/lib/firebase'
-  import backend, { persistAuthToken } from '@/lib/backend'
+  import backend from '@/lib/backend'
 
-  async function onClick(e) {
+  async function onClick() {
     const idToken = await firebase.openPopup('twitter').catch(() => {})
-    const session = await backend().login({ idToken })
-    persistAuthToken(session.token)
+    const { token } = await backend().login({ idToken })
 
+    session.login(token)
     navigate('/', { replace: true })
   }
+
+  onMount(() => {
+    if ($isLoggedIn) {
+      navigate('/', { replace: true })
+    }
+  })
 </script>
 
 <main>
