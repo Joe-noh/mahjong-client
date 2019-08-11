@@ -3,7 +3,7 @@
   import { Router, Link, Route } from 'svelte-routing'
   import { session } from '@/stores/session'
   import Top from './pages/Top.svelte'
-  import Signup from './pages/Signup.svelte'
+  import Login from './pages/Login.svelte'
 
   export let url = ''
 
@@ -13,10 +13,10 @@
 <Router url="{url}">
   <nav>
     <Link to="/">Home</Link>
-    <Link to="/signup">Signup</Link>
+    <Link to="/login">Login</Link>
   </nav>
   <div>
-    <Route path="/signup" component="{Signup}" />
     <Route path="/"><Top /></Route>
+    <Route path="/login" component="{Login}" />
   </div>
 </Router>
