@@ -1,3 +1,5 @@
+import { decamelize } from '@ridi/object-case-converter'
+
 type Method = 'GET' | 'POST' | 'PUT' | 'DELETE'
 
 export class HTTPClient {
@@ -25,7 +27,7 @@ export class HTTPClient {
     }
 
     if (params) {
-      req.body = JSON.stringify(params)
+      req.body = JSON.stringify(decamelize(params, { recursive: true }))
     }
 
     return this.jsonResolver<T>(fetch(this.urlFor(path), req))

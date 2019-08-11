@@ -1,18 +1,17 @@
 <script>
-  import { Router, Link, Route } from 'svelte-routing'
-  import Top from './pages/Top.svelte'
-  import Signup from './pages/Signup.svelte'
-
-  export let url = ''
+  import { onMount } from 'svelte'
+  import { Router, Link, Route, navigate } from 'svelte-routing'
+  import Top from '@/pages/Top.svelte'
+  import AuthenticatedRoute from '@/pages/AuthenticatedRoute.svelte'
 </script>
 
-<Router url="{url}">
+<Router>
   <nav>
     <Link to="/">Home</Link>
-    <Link to="/signup">Signup</Link>
+    <Link to="/lobby">Login</Link>
   </nav>
   <div>
-    <Route path="/signup" component="{Signup}" />
-    <Route path="/"><Top /></Route>
+    <Route path="/" component="{Top}" />
+    <Route path="/*" component="{AuthenticatedRoute}" />
   </div>
 </Router>

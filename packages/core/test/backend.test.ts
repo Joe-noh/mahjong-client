@@ -30,7 +30,7 @@ describe('Backend', (): void => {
     })
   })
 
-  describe('signup', (): void => {
+  describe('login', (): void => {
     it('returns Session instance on success', async (): Promise<void> => {
       mocked(HTTPClient).mockImplementation((): any => ({
         request(): Promise<SessionJSON> {
@@ -41,7 +41,7 @@ describe('Backend', (): void => {
       }))
 
       const backend = new Backend('http://localhost:4000')
-      const session: Session = await backend.signup({ name: 'john', password: 'password' })
+      const session: Session = await backend.login({ idToken: 'forebase-id-token' })
 
       expect(session.token).toEqual('json.web.token')
     })

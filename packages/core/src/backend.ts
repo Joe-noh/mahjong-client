@@ -9,7 +9,7 @@ export class Backend {
     this.http = new HTTPClient({ baseUrl, authToken: opts.authToken })
   }
 
-  public signup(params: { name: string; password: string }): Promise<Session> {
+  public login(params: { idToken: string }): Promise<Session> {
     return this.http.request<SessionJSON>('POST', '/api/users', { user: params }).then((json: SessionJSON): Session => Session.fromJSON(json))
   }
 

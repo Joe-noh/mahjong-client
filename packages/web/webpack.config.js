@@ -15,7 +15,8 @@ module.exports = webpackMerge(
     },
     resolve: {
       alias: {
-        svelte: path.resolve('node_modules', 'svelte')
+        svelte: path.resolve('node_modules', 'svelte'),
+        '@': path.resolve('src')
       },
       extensions: ['.mjs', '.js', '.svelte'],
       mainFields: ['svelte', 'browser', 'module', 'main']
@@ -30,7 +31,9 @@ module.exports = webpackMerge(
       new HtmlWebpackPlugin({ template: './src/index.template.html', favicon: './src/favicon.png' }),
       new EnvironmentPlugin({
         NODE_ENV: 'development',
-        BACKEND_URL: 'http://localhost:4000'
+        BACKEND_URL: 'http://localhost:4000',
+        FIREBASE_API_KEY: 'AIzaSyCL2aXJ4OcJcUniX4Uc66oM0uJoQDF9KAI',
+        FIREBASE_AUTH_DOMAIN: 'mah-development.firebaseapp.com'
       })
     ]
   },
