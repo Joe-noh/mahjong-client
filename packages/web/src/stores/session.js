@@ -19,7 +19,12 @@ function createSession() {
 
     restore() {
       const token = getAuthToken()
-      this.login(token)
+
+      if (token) {
+        this.login(token)
+      } else {
+        this.logout()
+      }
     }
   }
 }
