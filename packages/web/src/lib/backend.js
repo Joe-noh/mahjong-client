@@ -2,7 +2,7 @@ import { Backend } from '@mahjong-client/core'
 
 export default () => {
   const authToken = localStorage.getItem('authToken')
-  return new Backend('http://localhost:4000', { authToken })
+  return new Backend(process.env.BACKEND_URL, { authToken })
 }
 
 export function getAuthToken() {

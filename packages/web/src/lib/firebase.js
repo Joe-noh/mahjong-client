@@ -17,8 +17,8 @@ export default {
   initializeFirebase() {
     if (firebase.apps.length === 0) {
       firebase.initializeApp({
-        apiKey: 'AIzaSyCL2aXJ4OcJcUniX4Uc66oM0uJoQDF9KAI',
-        authDomain: 'mah-development.firebaseapp.com'
+        apiKey: process.env.FIREBASE_API_KEY,
+        authDomain: process.env.FIREBASE_AUTH_DOMAIN
       })
     }
   },
