@@ -3,12 +3,12 @@ import { decamelize } from '@ridi/object-case-converter'
 type Method = 'GET' | 'POST' | 'PUT' | 'DELETE'
 
 export class HTTPClient {
-  private authToken: string
   private baseUrl: string
+  private authToken: string
 
-  public constructor(opts: { authToken: string; baseUrl: string }) {
-    this.authToken = opts.authToken
+  public constructor(opts: { baseUrl: string; authToken: string }) {
     this.baseUrl = opts.baseUrl.replace(/\/$/, '')
+    this.authToken = opts.authToken
   }
 
   public request<T>(method: Method, path: string, params?: object): Promise<T> {
