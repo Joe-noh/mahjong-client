@@ -27,6 +27,7 @@
     "typescript": "^3.5.3"
   },
   "dependencies": {
-    "@ridi/object-case-converter": "^2.0.4"
+    "@ridi/object-case-converter": "^2.0.4",
+    "phoenix": "^1.4.9"
   }
 }

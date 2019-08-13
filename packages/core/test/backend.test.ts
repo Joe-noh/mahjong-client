@@ -41,7 +41,7 @@ describe('Backend', (): void => {
       }))
 
       const backend = new Backend('http://localhost:4000')
-      const session: Session = await backend.login({ idToken: 'forebase-id-token' })
+      const session: Session = await backend.login({ idToken: 'firebase-id-token' })
 
       expect(session.token).toEqual('json.web.token')
     })
