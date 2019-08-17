@@ -19,7 +19,7 @@ export class HTTPClient {
       headers.set('Authorization', `Bearer ${this.authToken}`)
     }
 
-    let req: RequestInit = {
+    const req: RequestInit = {
       method,
       mode: 'cors',
       redirect: 'follow',
