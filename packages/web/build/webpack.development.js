@@ -17,10 +17,6 @@ module.exports = {
             hotReload: true
           }
         }
-      },
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader']
       }
     ]
   },

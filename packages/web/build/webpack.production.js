@@ -1,5 +1,3 @@
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
-
 module.exports = {
   module: {
     rules: [
@@ -11,17 +9,8 @@ module.exports = {
             emitCss: true
           }
         }
-      },
-      {
-        test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, 'css-loader']
       }
     ]
   },
-  devtool: false,
-  plugins: [
-    new MiniCssExtractPlugin({
-      filename: '[name].[contenthash].css'
-    })
-  ]
+  devtool: false
 }

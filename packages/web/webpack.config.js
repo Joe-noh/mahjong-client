@@ -26,9 +26,18 @@ module.exports = webpackMerge(
       filename: '[name].[contenthash].js'
     },
     mode,
+    module: {
+      rules: [
+        {
+          test: /\.css$/,
+          use: [MiniCssExtractPlugin.loader, 'css-loader']
+        }
+      ]
+    },
     plugins: [
       new CleanWebpackPlugin(),
       new HtmlWebpackPlugin({ template: './src/index.template.html', favicon: './src/favicon.png' }),
+      new MiniCssExtractPlugin({ filename: '[name].[contenthash].css' }),
       new EnvironmentPlugin({
         NODE_ENV: 'development',
         BACKEND_URL: 'http://localhost:4000',
