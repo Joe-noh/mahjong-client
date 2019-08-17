@@ -1,5 +1,5 @@
 {
-  "name": "@mahojng-client/web",
+  "name": "@mahjong-client/web",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -20,7 +20,6 @@
     "mini-css-extract-plugin": "^0.8.0",
     "prettier": "^1.18.2",
     "serve": "^11.0.0",
-    "style-loader": "^0.23.1",
     "svelte": "^3.0.0",
     "svelte-loader": "2.13.3",
     "webpack": "^4.30.0",
