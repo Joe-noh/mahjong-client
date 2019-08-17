@@ -6,9 +6,11 @@
     "dev": "lerna exec --parallel npm run dev",
     "test": "lerna exec --parallel npm run test",
     "lint": "lerna exec --no-bail npm run lint",
-    "lint:fix": "lerna exec --no-bail 'npm run lint -- --fix'"
+    "lint:fix": "lerna exec --no-bail 'npm run lint -- --fix'",
+    "update": "lernaupdate"
   },
   "devDependencies": {
-    "lerna": "^3.16.4"
+    "lerna": "^3.16.4",
+    "lerna-update-wizard": "^0.16.0"
   }
 }
