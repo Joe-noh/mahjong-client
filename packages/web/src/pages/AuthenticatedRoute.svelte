@@ -3,6 +3,7 @@
   import { Router, Route, navigate } from 'svelte-routing'
   import { session, isLoggedIn } from '@/stores/session'
   import Lobby from '@/pages/Lobby.svelte'
+  import Game from '@/pages/g/Game.svelte'
 
   onMount(() => {
     session.restore()
@@ -14,5 +15,6 @@
 </script>
 
 <Router>
-  <Route path="/lobby" component="{Lobby}" />
+  <Route path="lobby" component="{Lobby}" />
+  <Route path="g/:gameId" component="{Game}" />
 </Router>
