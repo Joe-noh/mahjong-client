@@ -2,6 +2,7 @@ import { HTTPClient } from '@/backend/http-client'
 import { WSClient } from '@/backend/ws-client'
 import { Session, SessionJSON } from './entities/session'
 import { User, UserJSON } from './entities/user'
+import { Participation, ParticipationJSON } from './entities/participation'
 
 export class Backend {
   private http: HTTPClient
@@ -18,6 +19,10 @@ export class Backend {
 
   public getUser(id: number): Promise<User> {
     return this.http.request<UserJSON>('GET', `/api/users/${id}`).then((json: UserJSON): User => User.fromJSON(json))
+  }
+
+  public participateGame(): Promise<Participation> {
+    return this.http.request<ParticipationJSON>('POST', '/api/participations').then((json: ParticipationJSON): Participation => Participation.fromJSON(json))
   }
 
   public joinGame(gameId: string): void {
