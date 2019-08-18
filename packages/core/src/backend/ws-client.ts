@@ -22,7 +22,7 @@ export class WSClient {
     this.channel.join()
   }
 
-  public push(params: object): void {
-    this.channel.push(decamelize(params))
+  public push(event: string, params: object): void {
+    this.channel.push(event, decamelize(params))
   }
 }

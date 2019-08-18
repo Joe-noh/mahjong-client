@@ -30,7 +30,7 @@ export class Backend {
     this.ws.join(`game:${gameId}`)
   }
 
-  public sendCommand(command: object): void {
-    this.ws.push(command)
+  public playerReady(): void {
+    this.ws.push('ready', {})
   }
 }
