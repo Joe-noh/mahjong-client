@@ -1,6 +1,6 @@
 <script>
   import { onMount } from 'svelte'
-  import { Router, Route, navigate } from 'svelte-routing'
+  import Router, { replace } from 'svelte-spa-router'
   import { session, isLoggedIn } from '@/stores/session'
   import Lobby from '@/pages/Lobby.svelte'
   import Game from '@/pages/g/Game.svelte'
@@ -9,12 +9,14 @@
     session.restore()
 
     if (!$isLoggedIn) {
-      navigate('/', { replace: true })
+      replace('/')
     }
   })
+
+  const routes = {
+    '/lobby': Lobby,
+    '/g/:gameId': Game
+  }
 </script>
 
-<Router>
-  <Route path="lobby" component="{Lobby}" />
-  <Route path="g/:gameId" component="{Game}" />
-</Router>
+<Router {routes} />

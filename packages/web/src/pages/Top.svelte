@@ -1,6 +1,6 @@
 <script>
   import { onMount } from 'svelte'
-  import { navigate } from 'svelte-routing'
+  import { push } from 'svelte-spa-router'
   import { session } from '@/stores/session'
   import firebase from '@/lib/firebase'
   import backend from '@/lib/backend'
@@ -10,7 +10,7 @@
     const { token } = await backend().login({ idToken })
 
     session.login(token)
-    navigate('/lobby')
+    push('/lobby')
   }
 </script>
 
