@@ -2,17 +2,17 @@
   import { onMount } from 'svelte'
   import backend from '@/lib/backend'
 
-  export let gameId
+  export let params
 
   const api = backend()
 
   onMount(() => {
-    api.joinGame(gameId)
+    api.joinGame(params.gameId)
 
     // set callbacks
 
-    api.playerReady(gameId)
+    api.playerReady(params.gameId)
   })
 </script>
 
-<span>game {gameId}</span>
+<span>game {params.gameId}</span>

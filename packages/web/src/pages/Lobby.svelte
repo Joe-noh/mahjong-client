@@ -1,5 +1,5 @@
 <script>
-  import { navigate } from 'svelte-routing'
+  import { push } from 'svelte-spa-router'
   import backend from '@/lib/backend'
 
   async function joinGame() {
@@ -7,7 +7,7 @@
 
     try {
       const { gameId } = await api.participateGame()
-      navigate(`/g/${gameId}`)
+      push(`/g/${gameId}`)
     } catch (e) {
       console.log(e)
     }
