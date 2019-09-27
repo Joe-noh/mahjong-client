@@ -17,6 +17,10 @@ export class Backend {
     return this.http.request<SessionJSON>('POST', '/api/users', { user: params }).then((json: SessionJSON): Session => Session.fromJSON(json))
   }
 
+  public loginAsGuest(): Promise<Session> {
+    return this.http.request<SessionJSON>('POST', '/api/guests').then((json: SessionJSON): Session => Session.fromJSON(json))
+  }
+
   public getUser(id: number): Promise<User> {
     return this.http.request<UserJSON>('GET', `/api/users/${id}`).then((json: UserJSON): User => User.fromJSON(json))
   }

@@ -12,11 +12,19 @@
     session.login(token)
     push('/lobby')
   }
+
+  async function guestLogin() {
+    const { token } = await backend().loginAsGuest()
+
+    session.login(token)
+    navigate('/lobby')
+  }
 </script>
 
 <main>
   <h1>top page</h1>
   <article>
-    <button on:click|preventDefault="{twitterLogin}">Login</button>
+    <button on:click="{twitterLogin}">Login with Twitter</button>
+    <button on:click="{guestLogin}">Play as Guest</button>
   </article>
 </main>
