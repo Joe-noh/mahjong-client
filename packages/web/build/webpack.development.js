@@ -5,7 +5,7 @@ module.exports = {
     rules: [
       {
         enforce: 'pre',
-        test: /\.(js|svelte)$/,
+        test: /\.(js)$/,
         exclude: [/node_modules/, path.resolve(__dirname, '../../core')],
         loader: 'eslint-loader'
       },
