@@ -46,4 +46,24 @@ describe('Backend', (): void => {
       expect(session.token).toEqual('json.web.token')
     })
   })
+
+  describe('loginAsGuest', (): void => {
+    it('returns Session instance on success', async (): Promise<void> => {
+      mocked(HTTPClient).mockImplementation((): any => ({
+        request(method: string, path: string): Promise<SessionJSON> {
+          return new Promise<SessionJSON>((resolve): void => {
+            expect(method).toEqual('POST')
+            expect(path).toEqual('/api/guests')
+
+            resolve({ token: 'json.web.token' })
+          })
+        }
+      }))
+
+      const backend = new Backend('http://localhost:4000')
+      const session: Session = await backend.loginAsGuest()
+
+      expect(session.token).toEqual('json.web.token')
+    })
+  })
 })
