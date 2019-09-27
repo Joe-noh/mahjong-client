@@ -15,7 +15,10 @@ describe('Backend', (): void => {
   describe('getUser', (): void => {
     it('returns User instance', async (): Promise<void> => {
       mocked(HTTPClient).mockImplementation((): any => ({
-        request(): Promise<UserJSON> {
+        request(method: string, path: string): Promise<UserJSON> {
+          expect(method).toEqual('GET')
+          expect(path).toEqual('/api/users/1')
+
           return new Promise<UserJSON>((resolve): void => {
             resolve({ id: 1, name: 'jack' })
           })
@@ -33,7 +36,10 @@ describe('Backend', (): void => {
   describe('login', (): void => {
     it('returns Session instance on success', async (): Promise<void> => {
       mocked(HTTPClient).mockImplementation((): any => ({
-        request(): Promise<SessionJSON> {
+        request(method: string, path: string): Promise<SessionJSON> {
+          expect(method).toEqual('POST')
+          expect(path).toEqual('/api/users')
+
           return new Promise<SessionJSON>((resolve): void => {
             resolve({ token: 'json.web.token' })
           })
@@ -51,10 +57,10 @@ describe('Backend', (): void => {
     it('returns Session instance on success', async (): Promise<void> => {
       mocked(HTTPClient).mockImplementation((): any => ({
         request(method: string, path: string): Promise<SessionJSON> {
-          return new Promise<SessionJSON>((resolve): void => {
-            expect(method).toEqual('POST')
-            expect(path).toEqual('/api/guests')
+          expect(method).toEqual('POST')
+          expect(path).toEqual('/api/guests')
 
+          return new Promise<SessionJSON>((resolve): void => {
             resolve({ token: 'json.web.token' })
           })
         }
