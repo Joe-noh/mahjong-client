@@ -17,12 +17,31 @@ export class WSClient {
     this.socket.connect()
   }
 
-  public join(topic: string): void {
+  public join(topic: string): Promise<any> {
     this.channel = this.socket.channel(topic)
-    this.channel.join()
+
+    return new Promise((resolve, reject): void => {
+      this.channel
+        .join()
+        .receive('ok', resp => resolve(resp))
+        .receive('error', resp => reject(resp))
+    })
+  }
+
+  public leave(): Promise<void> {
+    return new Promise((resolve, reject): void => {
+      this.channel
+        .leave()
+        .receive('ok', () => resolve())
+        .receive('error', () => reject())
+    })
   }
 
   public push(event: string, params: object): void {
     this.channel.push(event, decamelize(params))
+  }
+
+  public on(event: string, callback: (a: any) => void): void {
+    this.channel.on(event, callback)
   }
 }
