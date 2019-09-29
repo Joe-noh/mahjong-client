@@ -13,6 +13,6 @@
 
 <nav>
   <a href="/" use:link>Home</a>
-  <a href="/lobby" use:link>Logiin</a>
+  <a href="/lobby" use:link>Login</a>
 </nav>
 <Router {routes} />

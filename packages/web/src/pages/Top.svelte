@@ -17,7 +17,7 @@
     const { token } = await backend().loginAsGuest()
 
     session.login(token)
-    navigate('/lobby')
+    push('/lobby')
   }
 </script>
 

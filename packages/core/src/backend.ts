@@ -29,12 +29,21 @@ export class Backend {
     return this.http.request<ParticipationJSON>('POST', '/api/participations').then((json: ParticipationJSON): Participation => Participation.fromJSON(json))
   }
 
-  public joinGame(gameId: string): void {
+  public joinGame(gameId: string): Promise<any> {
     this.ws.connect()
-    this.ws.join(`game:${gameId}`)
+
+    return this.ws.join(`game:${gameId}`)
+  }
+
+  public leaveGame(): Promise<void> {
+    return this.ws.leave()
   }
 
   public playerReady(): void {
     this.ws.push('ready', {})
+  }
+
+  public on(event: string, callback: (a: any) => void): void {
+    this.ws.on(event, callback)
   }
 }
