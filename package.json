@@ -2,15 +2,10 @@
   "name": "mahjong-client",
   "private": true,
   "scripts": {
-    "lerna": "lerna",
-    "dev": "lerna exec --parallel npm run dev",
-    "test": "lerna exec --parallel npm run test",
-    "lint": "lerna exec --no-bail npm run lint",
-    "lint:fix": "lerna exec --no-bail 'npm run lint -- --fix'",
-    "update": "lernaupdate"
-  },
-  "devDependencies": {
-    "lerna": "^3.16.4",
-    "lerna-update-wizard": "^0.16.0"
+    "dev": "node run.js run dev",
+    "test": "node run.js test",
+    "lint": "node run.js run lint",
+    "lint:fix": "node run.js run lint -- --fix",
+    "install": "node run.js install"
   }
 }
