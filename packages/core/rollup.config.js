@@ -10,5 +10,8 @@ export default {
     format: 'umd',
     name: '@mahjong-client/core'
   },
+  watch: {
+    clearScreen: false
+  },
   plugins: [resolve({ browser: true }), commonjs(), eslint(), ts()]
 }
