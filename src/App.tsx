@@ -1,6 +1,6 @@
-import React from 'react';
+import React from 'react'
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom'
-import { Home, Login } from './pages'
+import { ProtectedRoute, Home, Login, Game } from './routes'
 import './App.css'
 
 const App: React.FC = () => (
@@ -10,11 +10,15 @@ const App: React.FC = () => (
         <ul>
           <li><Link to="/">Home</Link></li>
           <li><Link to="/login">Login</Link></li>
+          <li><Link to="/game">Game</Link></li>
         </ul>
       </nav>
       <Switch>
         <Route exact path='/' component={Home} />
         <Route path='/login' component={Login} />
+        <ProtectedRoute path='/game'>
+          <Game />
+        </ProtectedRoute>
       </Switch>
     </div>
   </Router>
