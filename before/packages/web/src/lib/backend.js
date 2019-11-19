@@ -1,4 +1,4 @@
-import { Backend } from '@mahjong-client/core'
+import { Backend } from 'mahjong-client-core'
 
 export default () => {
   const authToken = localStorage.getItem('authToken')

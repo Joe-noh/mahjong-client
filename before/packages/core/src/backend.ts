@@ -39,11 +39,11 @@ export class Backend {
     return this.ws.leave()
   }
 
-  public playerReady(): void {
-    this.ws.push('ready', {})
+  public playerReady(): Promise<any> {
+    return this.ws.push('ready', {})
   }
 
   public on(event: string, callback: (a: any) => void): void {
-    this.ws.on(event, callback)
+    return this.ws.on(event, callback)
   }
 }

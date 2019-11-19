@@ -1,5 +1,5 @@
 {
-  "name": "@mahjong-client/web",
+  "name": "mahjong-client-web",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -28,7 +28,7 @@
     "webpack-merge": "^4.2.1"
   },
   "dependencies": {
-    "core": "file:../core",
+    "mahjong-client-core": "file:../core",
     "firebase": "^6.4.0",
     "snakecase-keys": "^3.1.0",
     "svelte-spa-router": "^1.2.0"

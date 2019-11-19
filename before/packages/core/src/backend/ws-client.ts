@@ -37,11 +37,16 @@ export class WSClient {
     })
   }
 
-  public push(event: string, params: object): void {
-    this.channel.push(event, decamelize(params))
+  public push(event: string, params: object): Promise<any> {
+    return new Promise((resolve, reject): void => {
+      this.channel
+        .push(event, decamelize(params))
+        .receive('ok', resp => resolve(resp))
+        .receive('error', resp => reject(resp))
+    })
   }
 
   public on(event: string, callback: (a: any) => void): void {
-    this.channel.on(event, callback)
+    return this.channel.on(event, callback)
   }
 }

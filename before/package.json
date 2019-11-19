@@ -1,0 +1,11 @@
+{
+  "name": "mahjong-client",
+  "private": true,
+  "scripts": {
+    "dev": "node run.js run dev",
+    "test": "node run.js test",
+    "lint": "node run.js run lint",
+    "lint:fix": "node run.js run lint -- --fix",
+    "postinstall": "node run.js install"
+  }
+}

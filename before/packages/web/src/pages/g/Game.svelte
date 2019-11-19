@@ -13,8 +13,11 @@
         console.log(e)
       })
 
-      api.playerReady(params.gameId)
-    }).catch(() => {
+      api.playerReady(params.gameId).then((a) => {
+        console.log(a)
+      })
+    }).catch((e) => {
+      console.log(e)
       api.leaveGame().then(() => {
         replace('/lobby')
       })
