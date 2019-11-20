@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import api from '../lib/backend-api'
+import api from 'lib/backend-api'
 
 const Home: React.FC = () => {
   useEffect(() => {

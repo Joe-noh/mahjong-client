@@ -1,6 +1,6 @@
 import React from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
-import session from '../lib/session'
+import session from 'lib/session'
 
 const Login: React.FC = () => {
   const history = useHistory()
