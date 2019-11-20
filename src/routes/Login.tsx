@@ -1,5 +1,6 @@
 import React from 'react'
 import { useHistory, useLocation } from 'react-router-dom'
+import session from '../lib/session'
 
 const Login: React.FC = () => {
   const history = useHistory()
@@ -8,7 +9,7 @@ const Login: React.FC = () => {
   const login = () => {
     const { from } = location.state || { from: { pathname: '/' } }
 
-    sessionStorage.setItem('token', 'fake')
+    session.setToken('fake')
     history.replace(from)
   }
 
