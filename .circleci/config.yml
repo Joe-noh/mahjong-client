@@ -8,17 +8,9 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - v1-npm-cache-core-{{ checksum "packages/core/package.json" }}
-            - v1-npm-cache-web-{{ checksum "packages/web/package.json" }}
             - v1-npm-cache-{{ checksum "package.json" }}
       - run: npm install
       - save_cache:
           key: v1-npm-cache-{{ checksum "package.json" }}
           paths: node_modules
-      - save_cache:
-          key: v1-npm-cache-core-{{ checksum "packages/core/package.json" }}
-          paths: packages/core/node_modules
-      - save_cache:
-          key: v1-npm-cache-web-{{ checksum "packages/web/package.json" }}
-          paths: packages/web/node_modules
       - run: npm test

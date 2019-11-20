@@ -1,11 +1,40 @@
 {
-  "name": "mahjong-client",
+  "name": "mah",
+  "version": "0.1.0",
   "private": true,
+  "dependencies": {
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-router-dom": "^5.1.2",
+    "reset-css": "^5.0.1"
+  },
   "scripts": {
-    "dev": "node run.js run dev",
-    "test": "node run.js test",
-    "lint": "node run.js run lint",
-    "lint:fix": "node run.js run lint -- --fix",
-    "postinstall": "node run.js install"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@types/jest": "24.0.23",
+    "@types/node": "12.12.9",
+    "@types/react": "16.9.11",
+    "@types/react-dom": "16.9.4",
+    "@types/react-router-dom": "^5.1.2",
+    "react-scripts": "3.2.0",
+    "typescript": "3.7.2"
   }
 }
