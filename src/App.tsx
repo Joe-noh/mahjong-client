@@ -7,15 +7,21 @@ const App: React.FC = () => (
     <div>
       <nav>
         <ul>
-          <li><Link to="/">Home</Link></li>
-          <li><Link to="/login">Login</Link></li>
-          <li><Link to="/game">Game</Link></li>
+          <li>
+            <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
+          <li>
+            <Link to="/game">Game</Link>
+          </li>
         </ul>
       </nav>
       <Switch>
-        <Route exact path='/' component={Home} />
-        <Route path='/login' component={Login} />
-        <ProtectedRoute path='/game'>
+        <Route exact path="/" component={Home} />
+        <Route path="/login" component={Login} />
+        <ProtectedRoute path="/game">
           <Game />
         </ProtectedRoute>
       </Switch>
