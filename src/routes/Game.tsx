@@ -1,5 +1,3 @@
 import React from 'react'
 
-const Game: React.FC = () => <h1>Game</h1>
-
-export default Game
+export const Game: React.FC = () => <h1>Game</h1>
