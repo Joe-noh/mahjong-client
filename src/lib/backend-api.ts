@@ -12,8 +12,9 @@ export default {
   },
 
   request<T>(method: Method, path: string, opts: object = {}): Promise<T> {
+    const url = process.env.REACT_APP_API_URL + path
     const headers = this.headers()
-    const promise = fetch(path, { method, headers, ...opts } as RequestInit)
+    const promise = fetch(url, { method, headers, ...opts } as RequestInit)
 
     return this.typed<T>(promise)
   },
@@ -34,7 +35,7 @@ export default {
           if (response.ok) {
             response
               .json()
-              .then(json => resolve(json))
+              .then(json => resolve(json.data))
               .catch(error => reject(error))
           } else {
             reject(response)
