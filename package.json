@@ -59,6 +59,7 @@
     "prettier": "^1.19.1",
     "prettier-config-standard": "^1.0.1",
     "react-scripts": "3.2.0",
-    "typescript": "3.7.2"
+    "typescript": "3.7.2",
+    "yorkie": "^2.0.0"
   }
 }
