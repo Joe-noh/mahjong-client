@@ -13,7 +13,26 @@
     "extends": [
       "react-app",
       "prettier-standard"
-    ]
+    ],
+    "rules": {
+      "max-len": [
+        "error",
+        {
+          "code": 120
+        }
+      ],
+      "prettier/prettier": [
+        "error",
+        {
+          "printWidth": 120,
+          "semi": false,
+          "singleQuote": true
+        }
+      ]
+    }
+  },
+  "prettier": {
+    "printWidth": 120
   },
   "gitHooks": {
     "pre-commit": "lint-staged"

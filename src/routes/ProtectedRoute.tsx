@@ -1,10 +1,5 @@
 import React from 'react'
-import {
-  Route,
-  Redirect,
-  RouteProps,
-  RouteComponentProps
-} from 'react-router-dom'
+import { Route, Redirect, RouteProps, RouteComponentProps } from 'react-router-dom'
 import session from 'lib/session'
 
 export const ProtectedRoute = ({ children, ...rest }: RouteProps) => {
