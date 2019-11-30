@@ -1,14 +1,17 @@
 import React from 'react'
+import { useHistory } from 'react-router-dom'
 import api from 'lib/backend-api'
-import { Participation } from 'types'
 
-export const New: React.FC = () => {
+export const New: React.FC = a => {
+  const history = useHistory()
+
   const join = async () => {
     const participation: Participation = await api.post<Participation>(
       '/api/participations',
       {}
     )
-    console.log(participation)
+
+    history.push(`/game/${participation.gameId}`)
   }
 
   return (
