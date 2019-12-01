@@ -6,10 +6,7 @@ export const New: React.FC = a => {
   const history = useHistory()
 
   const join = async () => {
-    const participation: Participation = await api.post<Participation>(
-      '/api/participations',
-      {}
-    )
+    const participation: Participation = await api.post<Participation>('/api/participations')
 
     history.push(`/game/${participation.gameId}`)
   }

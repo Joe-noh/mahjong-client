@@ -8,9 +8,9 @@ export const Login: React.FC = () => {
   const location = useLocation()
   const { from } = location.state || { from: { pathname: '/new' } }
 
-  const loginAs = (userId: number) => {
+  const loginAs = (name: string) => {
     return async () => {
-      const { token } = await api.post<Session>('/api/sessions', { userId })
+      const { token } = await api.post<Session>('/api/sessions', { name })
       session.setToken(token)
 
       history.replace(from)
@@ -18,7 +18,11 @@ export const Login: React.FC = () => {
   }
 
   const buttons = [1, 2, 3, 4].map(i => {
-    return <button onClick={loginAs(i)}>Login as User {i}</button>
+    return (
+      <button key={i} onClick={loginAs(`dummy${i}`)}>
+        Login as User {i}
+      </button>
+    )
   })
 
   return (

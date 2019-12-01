@@ -7,7 +7,7 @@ export default {
     return this.request<T>('GET', path)
   },
 
-  post<T>(path: string, body: object): Promise<T> {
+  post<T>(path: string, body: object = {}): Promise<T> {
     return this.request<T>('POST', path, { body: JSON.stringify(body) })
   },
 
