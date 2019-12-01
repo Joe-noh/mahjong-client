@@ -10,7 +10,7 @@ beforeEach(() => {
 
   global.fetch = jest.fn().mockImplementation(() => {
     return new Promise((resolve, reject) => {
-      resolve(new Response(JSON.stringify({ name: 'alex' })))
+      resolve(new Response(JSON.stringify({ data: { name: 'alex' } })))
     })
   })
 })
@@ -24,7 +24,7 @@ describe('get', () => {
     const user: User = await api.get<User>('/users/1')
 
     expect(user.name).toEqual('alex')
-    expect(global.fetch).toBeCalledWith('/users/1', {
+    expect(global.fetch).toBeCalledWith('http://localhost:4000/users/1', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -38,7 +38,7 @@ describe('post', () => {
   it('can post json', async () => {
     await api.post<User>('/users', { name: 'jack' })
 
-    expect(global.fetch).toBeCalledWith('/users', {
+    expect(global.fetch).toBeCalledWith('http://localhost:4000/users', {
       method: 'POST',
       body: JSON.stringify({ name: 'jack' }),
       headers: {
