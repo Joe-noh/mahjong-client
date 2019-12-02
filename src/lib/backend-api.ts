@@ -1,4 +1,5 @@
 import session from 'lib/session'
+import { camelize, decamelize } from 'lib/object-case'
 
 type Method = 'GET' | 'POST'
 
@@ -8,7 +9,7 @@ export default {
   },
 
   post<T>(path: string, body: object = {}): Promise<T> {
-    return this.request<T>('POST', path, { body: JSON.stringify(body) })
+    return this.request<T>('POST', path, { body: JSON.stringify(decamelize(body)) })
   },
 
   request<T>(method: Method, path: string, opts: object = {}): Promise<T> {
@@ -35,7 +36,7 @@ export default {
           if (response.ok) {
             response
               .json()
-              .then(json => resolve(json.data))
+              .then(json => resolve(camelize(json.data)))
               .catch(error => reject(error))
           } else {
             reject(response)
